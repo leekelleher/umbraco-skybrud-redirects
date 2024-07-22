@@ -5,37 +5,26 @@ using Skybrud.Essentials.Time;
 
 #pragma warning disable 1591
 
-namespace Skybrud.Umbraco.Redirects.Text.Json {
+namespace Skybrud.Umbraco.Redirects.Text.Json;
 
-    public class Iso8601TimeConverter : JsonConverter<EssentialsTime> {
+public class Iso8601TimeConverter : JsonConverter<EssentialsTime> {
 
-        public override EssentialsTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+    public override EssentialsTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        return reader.TokenType switch {
+            JsonTokenType.Null => null,
+            JsonTokenType.String => EssentialsTime.Parse(reader.GetString()),
+            _ => throw new Exception($"Unsupported token type: {reader.TokenType}")
+        };
+    }
 
-            switch (reader.TokenType) {
+    public override void Write(Utf8JsonWriter writer, EssentialsTime? value, JsonSerializerOptions options) {
 
-                case JsonTokenType.Null:
-                    return null;
-
-                case JsonTokenType.String:
-                    return EssentialsTime.Parse(reader.GetString());
-
-                default:
-                    throw new Exception($"Unsupported token type: {reader.TokenType}");
-
-            }
-
+        if (value == null) {
+            writer.WriteNullValue();
+            return;
         }
 
-        public override void Write(Utf8JsonWriter writer, EssentialsTime? value, JsonSerializerOptions options) {
-
-            if (value == null) {
-                writer.WriteNullValue();
-                return;
-            }
-
-            writer.WriteStringValue(value.Iso8601);
-
-        }
+        writer.WriteStringValue(value.Iso8601);
 
     }
 

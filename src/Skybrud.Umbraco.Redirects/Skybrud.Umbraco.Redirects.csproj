@@ -1,16 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <LangVersion>12.0</LangVersion>
     <TargetFramework>net8.0</TargetFramework>
     <StaticWebAssetBasePath>App_Plugins/$(AssemblyName)</StaticWebAssetBasePath>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup>
-    <VersionPrefix>13.0.4</VersionPrefix>
+    <VersionPrefix>14.0.0-alpha000</VersionPrefix>
     <VersionSuffix Condition="'$(Configuration)'=='Debug'">build$([System.DateTime]::UtcNow.ToString(`yyyyMMddHHmm`))</VersionSuffix>
     <Authors>Anders Bjerner</Authors>
     <Company>Limbo</Company>
@@ -33,27 +30,12 @@
 
   <!-- Include NuGet dependencies -->
   <ItemGroup>
-    <PackageReference Include="Skybrud.Essentials" Version="1.1.54" />
-    <PackageReference Include="Umbraco.Cms.Core" Version="[13.0.0,13.999)" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0.0,13.999)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.0,13.999)" />
+    <PackageReference Include="Skybrud.Essentials" Version="1.1.57" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="[14.0.0,14.999)" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[14.0.0,14.999)" />
   </ItemGroup>
 
-  <!-- Include backoffice assets -->
-  <ItemGroup>
-    <Content Remove="wwwroot\**\*" />
-    <Content Include="wwwroot\**\*.css" />
-    <Content Include="wwwroot\**\*.html" />
-    <Content Include="wwwroot\**\*.js" />
-    <Content Include="wwwroot\Lang\*.xml" />
-    <Content Remove="compilerconfig.json" />
-    <Content Remove="wwwroot\Scripts/Intellisense.js" />
-    <None Include="wwwroot\**\*.less" />
-    <None Include="compilerconfig.json" />
-    <None Include="wwwroot\Scripts/Intellisense.js" />
-  </ItemGroup>
-
-  <!-- Include package icon and README for the NuGet -->
+  <!-- Include package icon and README for the NuGet package -->
   <ItemGroup>
     <Content Include="../build/Limbo.png" Pack="true" PackagePath="\" />
     <None Include="..\..\NUGET.md" Pack="true" PackagePath="\" />

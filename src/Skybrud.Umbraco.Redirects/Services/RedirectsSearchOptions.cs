@@ -1,58 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
+using Skybrud.Umbraco.Redirects.Models;
 
-namespace Skybrud.Umbraco.Redirects.Services {
+namespace Skybrud.Umbraco.Redirects.Services;
+
+/// <summary>
+/// Class with options for searching through the created redirects.
+/// </summary>
+public class RedirectsSearchOptions {
 
     /// <summary>
-    /// Class with options for searching through the created redirects.
+    /// Gets or sets the page to be returned. Default is <c>1</c>.
     /// </summary>
-    public class RedirectsSearchOptions {
+    public int Page { get; set; }
 
-        #region Properties
+    /// <summary>
+    /// Gets or sets the maximum amount of redirects to be returned per page. Default is <c>20</c>.
+    /// </summary>
+    public int Limit { get; set; }
 
-        /// <summary>
-        /// Gets or sets the page to be returned. Default is <c>1</c>.
-        /// </summary>
-        public int Page { get; set; }
+    /// <summary>
+    /// Gets or sets the key the returned redirects should match. <see cref="Guid.Empty"/> indicates all global
+    /// redirects. Default is <c>null</c>, in which case this filter is disabled.
+    /// </summary>
+    public Guid? RootNodeKey { get; set; }
 
-        /// <summary>
-        /// Gets or sets the maximum amount of redirects to be returned per page. Default is <c>20</c>.
-        /// </summary>
-        public int Limit { get; set; }
+    /// <summary>
+    /// Gets or sets the types the returned redirects should match.
+    /// </summary>
+    public List<RedirectDestinationType> Type {  get; set; } = [];
 
-        /// <summary>
-        /// Gets or sets the type of redirects to be returned. Possible values are
-        /// <see cref="RedirectTypeFilter.All"/>, <see cref="RedirectTypeFilter.Content"/>,
-        /// <see cref="RedirectTypeFilter.Media"/> or <see cref="RedirectTypeFilter.Url"/>. Default is
-        /// <see cref="RedirectTypeFilter.All"/>.
-        /// </summary>
-        public RedirectTypeFilter Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets a string value that should be present in either the text or URL of the returned redirects.
-        /// Default is <c>null</c>.
-        /// </summary>
-        public string? Text { get; set; }
-
-        /// <summary>
-        /// Gets or sets the key the returned redirects should match. <see cref="Guid.Empty"/> indicates all global
-        /// redirects. Default is <c>null</c>, in which case this filter is disabled.
-        /// </summary>
-        public Guid? RootNodeKey { get; set; }
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Initializes a new instance with default options.
-        /// </summary>
-        public RedirectsSearchOptions() {
-            Page = 1;
-            Limit = 20;
-        }
-
-        #endregion
-
-    }
+    /// <summary>
+    /// Gets or sets a string value that should be present in either the text or URL of the returned redirects. Default is <see langword="null"/>.
+    /// </summary>
+    public string? Text { get; set; }
 
 }
