@@ -36,6 +36,16 @@ export const onInit = (_host, extensionRegistry) => {
 
             extensionRegistry.register({
                 "type": "localization",
+                "alias": "Skybrud.Umbraco.Redirects.En",
+                "name": "English",
+                "js": () => import("./Localization/en-US.js?v=" + RedirectsPackage.cacheBuster),
+                "meta": {
+                    "culture": "en"
+                }
+            });
+
+            extensionRegistry.register({
+                "type": "localization",
                 "alias": "Skybrud.Umbraco.Redirects.EnUS",
                 "name": "English (United States)",
                 "js": () => import("./Localization/en-US.js?v=" + RedirectsPackage.cacheBuster),
