@@ -311,7 +311,7 @@ export class EditRedirectModalElement extends UmbModalBaseElement {
                 ${when(this.tab === "info", () => this.renderInfo())}
                 <div slot="actions">
                     <uui-button id="cancel" label="${this.localize.term("general_cancel")}" @click="${this.handleCancel}"></uui-button>
-                    <uui-button id="save" color="positive" look="primary" label="${term("save")}" state="${this.submitButtonState}" ${this.tab === "info" ? "disabled" : ""} @click="${this.handleConfirm}"></uui-button>
+                    <uui-button id="save" color="positive" look="primary" label="${term("save")}" ?disabled="${this.tab === "info"}" state="${this.submitButtonState}" ${this.tab === "info" ? "disabled" : ""} @click="${this.handleConfirm}"></uui-button>
                 </div>
             </umb-body-layout>
         `;
