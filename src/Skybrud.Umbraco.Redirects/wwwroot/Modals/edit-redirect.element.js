@@ -36,6 +36,8 @@ export class EditRedirectModalElement extends UmbModalBaseElement {
 
         const self = this;
 
+        this.submitButtonState = null;
+
         this.rootNodes = [
             { name: self.localize.term("redirects_allSites"), value: "00000000-0000-0000-0000-000000000000", selected: true }
         ];
@@ -139,24 +141,32 @@ export class EditRedirectModalElement extends UmbModalBaseElement {
 
         if (this.errors.length > 0) {
             console.log(redirect, this.errors);
+            self.submitButtonState = "failed";
+            self.requestUpdate();
             return;
         }
+
+        self.submitButtonState = "waiting";
+        self.requestUpdate();
 
         RedirectsService.saveRedirect(redirect).then(function (res) {
             self.updateValue({ title: self.value.title, redirect: res.data });
             self.modalContext?.submit(res.data);
         }, function (res) {
+            self.submitButtonState = "failed";
             self._notificationContext?.peek("danger", {
                 data: {
                     message: "Saving redirect failed" + (res.data?.error ? ":\r\n" + res.data?.error : ".")
                 }
             });
+            self.requestUpdate();
         });
 
     }
 
     changeTab(alias) {
         this.tab = alias;
+        this.requestUpdate();
     }
 
     renderInfo() {
@@ -301,7 +311,7 @@ export class EditRedirectModalElement extends UmbModalBaseElement {
                 ${when(this.tab === "info", () => this.renderInfo())}
                 <div slot="actions">
                     <uui-button id="cancel" label="${this.localize.term("general_cancel")}" @click="${this.handleCancel}"></uui-button>
-                    <uui-button color="positive" look="primary" label="${term("save")}" @click="${this.handleConfirm}"></uui-button>
+                    <uui-button id="save" color="positive" look="primary" label="${term("save")}" state="${this.submitButtonState}" ${this.tab === "info" ? "disabled" : ""} @click="${this.handleConfirm}"></uui-button>
                 </div>
             </umb-body-layout>
         `;
