@@ -9,7 +9,7 @@
     }
 
     static get cacheBuster() {
-        return this._serverVariables["version"];
+        return this._serverVariables["cacheBuster"];
     }
 
 }

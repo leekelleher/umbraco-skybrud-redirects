@@ -1,8 +1,8 @@
 ﻿import { UmbElementMixin } from "@umbraco-cms/backoffice/element-api";
 import { LitElement, html, css, when } from "@umbraco-cms/backoffice/external/lit";
-import '@umbraco-cms/backoffice/components';
+import "@umbraco-cms/backoffice/components";
 import { UMB_MODAL_MANAGER_CONTEXT } from "@umbraco-cms/backoffice/modal";
-import { UMB_NOTIFICATION_CONTEXT } from '@umbraco-cms/backoffice/notification';
+import { UMB_NOTIFICATION_CONTEXT } from "@umbraco-cms/backoffice/notification";
 import { UMB_LINK_PICKER_MODAL } from "/umbraco/backoffice/packages/multi-url-picker/link-picker-modal/link-picker-modal.token.js";
 
 import { RedirectsService } from "@skybrud-redirects/service";
