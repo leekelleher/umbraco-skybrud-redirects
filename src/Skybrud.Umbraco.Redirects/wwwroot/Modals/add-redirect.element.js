@@ -24,7 +24,7 @@ export class MyDialogElement extends UmbModalBaseElement {
         const self = this;
 
         this.rootNodes = [
-            { name: self.localize.term("redirects_allSites"), value: "all", selected: true }
+            { name: self.localize.term("redirects_allSites"), value: "00000000-0000-0000-0000-000000000000", selected: true }
         ];
 
         this.consumeContext(UMB_MODAL_MANAGER_CONTEXT, (instance) => {
@@ -38,7 +38,7 @@ export class MyDialogElement extends UmbModalBaseElement {
         RedirectsService.getRootNodes().then(function (res) {
 
             const temp = [
-                { name: self.localize.term("redirects_allSites"), value: "all", selected: true }
+                { name: self.localize.term("redirects_allSites"), value: "00000000-0000-0000-0000-000000000000", selected: true }
             ];
 
             res.data.items.forEach(function (rootNode) {
