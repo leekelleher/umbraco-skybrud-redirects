@@ -20,7 +20,7 @@ export const onInit = (_host, extensionRegistry) => {
                 name: "Redirects",
                 alias: "Skybrud.Umbraco.Redirects.Dashboard",
                 elementName: "redirects-dashboard",
-                js: () => import("./Elements/dashboard.js?v=" + RedirectsPackage.cacheBuster),
+                js: () => import("./Elements/Dashboard.js?v=" + RedirectsPackage.cacheBuster),
                 weight: -10,
                 meta: {
                     label: "Redirects",

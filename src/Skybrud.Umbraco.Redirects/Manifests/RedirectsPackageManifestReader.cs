@@ -34,7 +34,7 @@ public class RedirectsPackageManifestReader : IPackageManifestReader {
                         {"@skybrud-redirects/service", "/App_Plugins/Skybrud.Umbraco.Redirects/RedirectsService.js?v=" + cacheBuster},
                         {"@skybrud-redirects/modals/add", "/App_Plugins/Skybrud.Umbraco.Redirects/Modals/add-redirect.js?v=" + cacheBuster},
                         {"@skybrud-redirects/modals/edit", "/App_Plugins/Skybrud.Umbraco.Redirects/Modals/edit-redirect.js?v=" + cacheBuster},
-                        {"@skybrud-redirects/elements/destination", "/App_Plugins/Skybrud.Umbraco.Redirects/Elements/destination.js?v=" + cacheBuster}
+                        {"@skybrud-redirects/elements/destination", "/App_Plugins/Skybrud.Umbraco.Redirects/Elements/Destination.js?v=" + cacheBuster}
                     }
                 }
             }

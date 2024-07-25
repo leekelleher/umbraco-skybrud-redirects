@@ -13,7 +13,7 @@ import { RedirectsService } from "@skybrud-redirects/service";
 import { REDIRECTS_ADD_REDIRECT_MODAL } from "@skybrud-redirects/modals/add";
 import { REDIRECTS_EDIT_REDIRECT_MODAL } from "@skybrud-redirects/modals/edit";
 
-export class RedirectsDashboard extends UmbElementMixin(LitElement) {
+export class RedirectsDashboardElement extends UmbElementMixin(LitElement) {
 
     get text() {
         return this._text;
@@ -384,6 +384,6 @@ export class RedirectsDashboard extends UmbElementMixin(LitElement) {
 
 }
 
-customElements.define("redirects-dashboard", RedirectsDashboard);
+customElements.define("redirects-dashboard", RedirectsDashboardElement);
 
-export default RedirectsDashboard;
+export default RedirectsDashboardElement;
