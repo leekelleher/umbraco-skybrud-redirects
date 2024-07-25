@@ -3,9 +3,7 @@ import { UmbModalBaseElement } from "@umbraco-cms/backoffice/modal";
 import { UMB_MODAL_MANAGER_CONTEXT } from "@umbraco-cms/backoffice/modal";
 import { UMB_NOTIFICATION_CONTEXT } from '@umbraco-cms/backoffice/notification';
 
-import "@limbo/elements/from-now";
-
-import { RedirectsService } from "@skybrud-redirects/service";
+import "@skybrud-redirects/service";
 import "@skybrud-redirects/elements/destination";
 
 export class EditRedirectModalElement extends UmbModalBaseElement {

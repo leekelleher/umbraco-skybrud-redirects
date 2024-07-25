@@ -55,6 +55,7 @@ export class RedirectsDestinationElement extends UmbElementMixin(LitElement) {
         const self = this;
 
         const modalContext = this.modalManagerContext?.open(this, UMB_LINK_PICKER_MODAL);
+
         modalContext.onSubmit().then(function (value) {
 
 

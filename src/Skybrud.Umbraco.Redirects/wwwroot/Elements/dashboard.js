@@ -7,8 +7,6 @@ import { umbConfirmModal } from '@umbraco-cms/backoffice/modal';
 import { UMB_MODAL_MANAGER_CONTEXT } from "@umbraco-cms/backoffice/modal";
 import { UMB_NOTIFICATION_CONTEXT } from '@umbraco-cms/backoffice/notification';
 
-import { UMB_LINK_PICKER_MODAL } from "/umbraco/backoffice/packages/multi-url-picker/link-picker-modal/link-picker-modal.token.js";
-
 import { RedirectsService } from "@skybrud-redirects/service";
 import { REDIRECTS_ADD_REDIRECT_MODAL } from "@skybrud-redirects/modals/add";
 import { REDIRECTS_EDIT_REDIRECT_MODAL } from "@skybrud-redirects/modals/edit";
