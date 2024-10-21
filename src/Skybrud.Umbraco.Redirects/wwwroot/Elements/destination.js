@@ -102,7 +102,8 @@ export class RedirectsDestinationElement extends UmbElementMixin(LitElement) {
                 case "external":
                     self.value = {
                         type: "external",
-                        url: value.url
+                        name: value.link.name,
+                        url: value.link.url,
                     };
                     break;
 
